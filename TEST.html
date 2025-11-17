@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>__THEME_TITLE__</title>
+
+<!-- jQuery (Required by Exam) -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<style>
+/* ------------------ GLOBAL STYLE ------------------ */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* NAVIGATION */
+nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    background: __THEME_COLOR__;
+    padding: 15px;
+    z-index: 1000;
+}
+nav a {
+    color: white;
+    text-decoration: none;
+    margin-right: 15px;
+    font-weight: bold;
+}
+
+/* BANNER */
+.banner {
+    margin-top: 60px;
+}
+.banner iframe {
+    width: 100%;
+    height: 350px;
+    border: none;
+}
+
+/* SECTION FORMAT */
+section {
+    padding: 40px;
+}
+h2 {
+    color: __THEME_COLOR__;
+}
+
+/* TABLE (2 x 4 required) */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+td {
+    border: 1px solid #ccc;
+    padding: 15px;
+    text-align: left;
+}
+
+/* FORM */
+form {
+    max-width: 600px;
+}
+input, select, textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+.error {
+    color: red;
+    font-size: 13px;
+}
+
+/* FOOTER */
+footer {
+    background: __THEME_COLOR__;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+</style>
+</head>
+<body>
+
+<!-- ================= NAVBAR ================= -->
+<nav>
+    <a href="#home">Home</a>
+    <a href="#plans">Plans</a>
+    <a href="#register">Register</a>
+    <a href="#contact">Contact</a>
+</nav>
+
+<!-- ================= BANNER ================= -->
+<div class="banner" id="home">
+    <iframe 
+        src="https://www.youtube.com/embed/__VIDEO_ID__?autoplay=1&mute=1&controls=1">
+    </iframe>
+</div>
+
+<!-- ================= WORKOUT / SERVICE PLANS ================= -->
+<section id="plans">
+    <h2>Our Programs</h2>
+    <table>
+        <tr>
+            <td>
+                <h3>Plan 1</h3>
+                <ul>
+                    <li>Item A</li>
+                    <li>Item B</li>
+                </ul>
+            </td>
+            <td>
+                <h3>Plan 2</h3>
+                <ul>
+                    <li>Item A</li>
+                    <li>Item B</li>
+                </ul>
+            </td>
+            <td>
+                <h3>Plan 3</h3>
+                <ul>
+                    <li>Item A</li>
+                    <li>Item B</li>
+                </ul>
+            </td>
+            <td>
+                <h3>Plan 4</h3>
+                <ul>
+                    <li>Item A</li>
+                    <li>Item B</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td><h3>Plan 5</h3><ul><li>A</li><li>B</li></ul></td>
+            <td><h3>Plan 6</h3><ul><li>A</li><li>B</li></ul></td>
+            <td><h3>Plan 7</h3><ul><li>A</li><li>B</li></ul></td>
+            <td><h3>Plan 8</h3><ul><li>A</li><li>B</li></ul></td>
+        </tr>
+    </table>
+</section>
+
+<!-- ================= REGISTRATION FORM ================= -->
+<section id="register">
+    <h2>Community Registration</h2>
+
+    <form id="regForm">
+        <label>Full Name</label>
+        <input type="text" id="fullname">
+        <div class="error" id="err_name"></div>
+
+        <label>Email</label>
+        <input type="text" id="email">
+        <div class="error" id="err_email"></div>
+
+        <label>Gender</label><br>
+        <input type="radio" name="gender" value="Male"> Male
+        <input type="radio" name="gender" value="Female"> Female
+        <div class="error" id="err_gender"></div>
+
+        <label>Age Group</label>
+        <select id="age">
+            <option value="">--Select--</option>
+            <option>18–25</option>
+            <option>26–40</option>
+            <option>41+</option>
+        </select>
+        <div class="error" id="err_age"></div>
+
+        <label>Interests (Choose one or more)</label><br>
+        <input type="checkbox" name="int" value="A"> Option A
+        <input type="checkbox" name="int" value="B"> Option B
+        <input type="checkbox" name="int" value="C"> Option C
+        <div class="error" id="err_int"></div>
+
+        <button type="button" id="submitBtn">Submit</button>
+        <button type="reset">Reset</button>
+    </form>
+</section>
+
+<!-- ================= CONTACT ================= -->
+<section id="contact">
+    <h2>Contact Us</h2>
+    <p>Phone: <a href="tel:+60123456789">+60 12-345 6789</a></p>
+    <p>Email: <a href="mailto:admin@example.com">admin@example.com</a></p>
+
+    <h3>Our Location</h3>
+    <iframe 
+        src="https://www.google.com/maps/embed?pb=__MAP_EMBED_CODE__"
+        width="100%" height="300">
+    </iframe>
+
+    <h3>Current Time:</h3>
+    <p id="datetime"></p>
+</section>
+
+<footer>
+    © __THEME_TITLE__ — All rights reserved.
+</footer>
+
+<script>
+// ---------------- DATE & TIME ----------------
+setInterval(() => {
+    document.getElementById("datetime").innerHTML = new Date().toLocaleString();
+}, 1000);
+
+// ---------------- JQUERY SMOOTH SCROLL ----------------
+$("nav a").click(function(e){
+    e.preventDefault();
+    $("html, body").animate({
+        scrollTop: $($(this).attr("href")).offset().top - 50
+    }, 500);
+});
+
+// ---------------- FORM VALIDATION ----------------
+$("#submitBtn").click(function(){
+
+    let valid = true;
+
+    // Name
+    if($("#fullname").val().trim() === ""){
+        $("#err_name").html("Name is required.");
+        valid = false;
+    } else { $("#err_name").html(""); }
+
+    // Email
+    const email = $("#email").val().trim();
+    const pattern = /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/;
+    if(!pattern.test(email)){
+        $("#err_email").html("Enter a valid email.");
+        valid = false;
+    } else { $("#err_email").html(""); }
+
+    // Gender
+    if(!$("input[name='gender']:checked").val()){
+        $("#err_gender").html("Choose gender.");
+        valid = false;
+    } else { $("#err_gender").html(""); }
+
+    // Age
+    if($("#age").val() === ""){
+        $("#err_age").html("Select age group.");
+        valid = false;
+    } else { $("#err_age").html(""); }
+
+    // Interests
+    if($("input[name='int']:checked").length === 0){
+        $("#err_int").html("Choose at least one interest.");
+        valid = false;
+    } else { $("#err_int").html(""); }
+
+    // SUCCESS
+    if(valid){
+        alert("Form submitted successfully!");
+        location.reload(); // refresh (required)
+    }
+});
+</script>
+
+</body>
+</html>
