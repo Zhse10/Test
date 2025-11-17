@@ -1,35 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<!-- ================================ -->
-<!-- NOTE: CHANGE WEBSITE NAME HERE   -->
-<!-- ================================ -->
+<!-- =================================== -->
+<!-- WEBSITE TITLE (CHANGE THIS)         -->
+<!-- =================================== -->
 <title>__THEME_TITLE__</title>
 
-<!-- jQuery (Required by Exam) -->
+<!-- jQuery (Required by exam) -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 <style>
-/* ------------------ GLOBAL STYLE ------------------ */
+/* ========================================================= */
+/* MAIN THEME COLOR — CHANGE THIS ONLY                       */
+/* ========================================================= */
+:root {
+    --theme-color: #1a73e8;  /* <-- change this to any color */
+    --bg-color: #ffffff;
+    --text-color: #000000;
+}
+
+/* ========================================================= */
+/* DARK MODE (Optional — toggled by JS)                      */
+/* ========================================================= */
+.dark-mode {
+    --bg-color: #111;
+    --text-color: #fff;
+    --theme-color: #000;
+}
+
+/* ========================================================= */
+/* GLOBAL STYLES USING CSS VARIABLES                         */
+/* ========================================================= */
 body {
     margin: 0;
     font-family: Arial, sans-serif;
+    background: var(--bg-color);
+    color: var(--text-color);
 }
 
-/* ====================== NAVIGATION ====================== */
+/* ========================================================= */
+/* NAVBAR + MOBILE MENU                                      */
+/* ========================================================= */
 nav {
+    background: var(--theme-color);
+    padding: 15px;
     position: fixed;
     top: 0; left: 0; right: 0;
-
-    /* NOTE: CHANGE YOUR THEME COLOR HERE */
-    background: __THEME_COLOR__;
-
-    padding: 15px;
     z-index: 1000;
 }
+
 nav a {
     color: white;
     text-decoration: none;
@@ -37,37 +60,21 @@ nav a {
     font-weight: bold;
 }
 
-/* NOTE: TOGGLE BUTTON SECTION */
-.toggle-controls {
-    float: right;
-}
-
-.toggle-controls button {
-    background: white;
-    color: black;
-    border: none;
-    padding: 6px 10px;
-    margin-left: 8px;
-    cursor: pointer;
-    border-radius: 5px;
-    font-weight: bold;
-}
-
-/* NOTE: MOBILE MENU HAMBURGER */
+/* MOBILE HAMBURGER BUTTON */
 .menu-btn {
     display: none;
-    font-size: 24px;
+    color: white;
+    font-size: 25px;
     cursor: pointer;
-    margin-left: 15px;
 }
 
-/* NOTE: SHOW LINKS WHEN NAV HAS CLASS 'open' */
+/* Show mobile menu when opened */
 nav.open a {
     display: block;
-    margin: 10px 0;
+    margin-top: 10px;
 }
 
-/* NOTE: RESPONSIVE NAVBAR ACTIVATION */
+/* RESPONSIVE BREAKPOINT */
 @media(max-width: 700px) {
     nav a {
         display: none;
@@ -75,49 +82,32 @@ nav.open a {
     .menu-btn {
         display: inline-block;
     }
-    nav.open a {
-        display: block;
-    }
 }
 
-/* ====================== DARK MODE STYLES ====================== */
-.dark-mode {
-    background: #121212;
-    color: white;
-}
-
-.dark-mode nav {
-    background: #000;
-}
-
-.dark-mode section {
-    background: #1e1e1e;
-}
-
-.dark-mode footer {
-    background: #000;
-}
-
-/* ====================== BANNER ====================== */
+/* ========================================================= */
+/* PAGE SECTIONS                                             */
+/* ========================================================= */
 .banner {
     margin-top: 60px;
 }
+
 .banner iframe {
     width: 100%;
     height: 350px;
     border: none;
 }
 
-/* ====================== SECTIONS ====================== */
 section {
     padding: 40px;
 }
+
 h2 {
-    /* NOTE: Changes with color toggle */
-    color: __THEME_COLOR__;
+    color: var(--theme-color);
 }
 
-/* ====================== TABLE (2x4) ====================== */
+/* ========================================================= */
+/* TABLE REQUIREMENT (2x4)                                   */
+/* ========================================================= */
 table {
     width: 100%;
     border-collapse: collapse;
@@ -125,10 +115,11 @@ table {
 td {
     border: 1px solid #ccc;
     padding: 15px;
-    text-align: left;
 }
 
-/* ====================== FORM ====================== */
+/* ========================================================= */
+/* FORM                                                      */
+/* ========================================================= */
 form {
     max-width: 600px;
 }
@@ -139,70 +130,56 @@ input, select, textarea {
 }
 .error {
     color: red;
-    font-size: 13px;
 }
 
-/* ====================== FOOTER ====================== */
+/* ========================================================= */
+/* FOOTER                                                    */
+/* ========================================================= */
 footer {
-    background: __THEME_COLOR__;
+    background: var(--theme-color);
     color: white;
-    padding: 20px;
     text-align: center;
+    padding: 20px;
 }
 </style>
 </head>
+
 <body>
 
-<!-- ================= NAVBAR ================= -->
+<!-- ========================================================= -->
+<!-- NAVBAR                                                    -->
+<!-- ========================================================= -->
 <nav>
-    <!-- NOTE: NAV LINKS -->
     <a href="#home">Home</a>
     <a href="#plans">Plans</a>
     <a href="#register">Register</a>
     <a href="#contact">Contact</a>
 
-    <!-- ================= NAVBAR TOGGLE BUTTONS ================= -->
-    <!-- NOTE: COLOR TOGGLE, DARK MODE, MOBILE MENU -->
-    <div class="toggle-controls">
-        <button id="colorToggle">Toggle Theme Color</button>
-        <button id="modeToggle">Dark/Light</button>
-        <span id="menuBtn" class="menu-btn">☰</span>
-    </div>
+    <!-- Dark/Light mode + Mobile Menu -->
+    <button id="modeToggle">Dark/Light</button>
+    <span id="menuBtn" class="menu-btn">☰</span>
 </nav>
 
-<!-- ================= BANNER ================= -->
+<!-- ========================================================= -->
+<!-- BANNER                                                    -->
+<!-- ========================================================= -->
 <div class="banner" id="home">
-    <iframe 
-        <!-- NOTE: CHANGE VIDEO ID HERE -->
-        src="https://www.youtube.com/embed/__VIDEO_ID__?autoplay=1&mute=1&controls=1">
-    </iframe>
+    <iframe src="https://www.youtube.com/embed/__VIDEO_ID__?autoplay=1&mute=1"></iframe>
 </div>
 
-<!-- ================= WORKOUT / SERVICE PLANS ================= -->
+<!-- ========================================================= -->
+<!-- 2x4 TABLE                                                 -->
+<!-- ========================================================= -->
 <section id="plans">
     <h2>Our Programs</h2>
 
-    <!-- NOTE: THIS TABLE MUST REMAIN 2 ROWS × 4 COLUMNS -->
     <table>
         <tr>
-            <td>
-                <h3>Plan 1</h3>
-                <ul><li>Item A</li><li>Item B</li></ul>
-            </td>
-            <td>
-                <h3>Plan 2</h3>
-                <ul><li>Item A</li><li>Item B</li></ul>
-            </td>
-            <td>
-                <h3>Plan 3</h3>
-                <ul><li>Item A</li><li>Item B</li></ul>
-            </td>
-            <td>
-                <h3>Plan 4</h3>
-                <ul><li>Item A</li><li>Item B</li></ul>
-            </td>
+            <td><h3>Plan 1</h3><ul><li>A</li><li>B</li></ul></td>
+            <td><h3>Plan 2</h3><ul><li>A</li><li>B</li></ul></td>
+            <td><h3>Plan 3</h3><ul><li>A</li><li>B</li></ul></td>
+            <td><h3>Plan 4</h3><ul><li>A</li><li>B</li></ul></td>
         </tr>
-
         <tr>
             <td><h3>Plan 5</h3><ul><li>A</li><li>B</li></ul></td>
             <td><h3>Plan 6</h3><ul><li>A</li><li>B</li></ul></td>
@@ -212,23 +189,25 @@ footer {
     </table>
 </section>
 
-<!-- ================= REGISTRATION FORM ================= -->
+<!-- ========================================================= -->
+<!-- REGISTRATION FORM                                         -->
+<!-- ========================================================= -->
 <section id="register">
     <h2>Community Registration</h2>
 
     <form id="regForm">
         <label>Full Name</label>
         <input type="text" id="fullname">
-        <div class="error" id="err_name"></div>
+        <div id="err_name" class="error"></div>
 
         <label>Email</label>
         <input type="text" id="email">
-        <div class="error" id="err_email"></div>
+        <div id="err_email" class="error"></div>
 
         <label>Gender</label><br>
         <input type="radio" name="gender" value="Male"> Male
         <input type="radio" name="gender" value="Female"> Female
-        <div class="error" id="err_gender"></div>
+        <div id="err_gender" class="error"></div>
 
         <label>Age Group</label>
         <select id="age">
@@ -237,20 +216,22 @@ footer {
             <option>26–40</option>
             <option>41+</option>
         </select>
-        <div class="error" id="err_age"></div>
+        <div id="err_age" class="error"></div>
 
-        <label>Interests (Choose one or more)</label><br>
-        <input type="checkbox" name="int" value="A"> Option A
-        <input type="checkbox" name="int" value="B"> Option B
-        <input type="checkbox" name="int" value="C"> Option C
-        <div class="error" id="err_int"></div>
+        <label>Interests</label><br>
+        <input type="checkbox" name="int" value="A"> A
+        <input type="checkbox" name="int" value="B"> B
+        <input type="checkbox" name="int" value="C"> C
+        <div id="err_int" class="error"></div>
 
         <button type="button" id="submitBtn">Submit</button>
         <button type="reset">Reset</button>
     </form>
 </section>
 
-<!-- ================= CONTACT ================= -->
+<!-- ========================================================= -->
+<!-- CONTACT SECTION                                           -->
+<!-- ========================================================= -->
 <section id="contact">
     <h2>Contact Us</h2>
 
@@ -258,37 +239,39 @@ footer {
     <p>Email: <a href="mailto:admin@example.com">admin@example.com</a></p>
 
     <h3>Our Location</h3>
-
-    <!-- NOTE: REPLACE MAP CODE HERE -->
-    <iframe 
-        src="https://www.google.com/maps/embed?pb=__MAP_EMBED_CODE__"
-        width="100%" height="300">
-    </iframe>
+    <iframe src="https://www.google.com/maps/embed?pb=__MAP_EMBED_CODE__" 
+            width="100%" height="300"></iframe>
 
     <h3>Current Time:</h3>
     <p id="datetime"></p>
 </section>
 
-<!-- ================= FOOTER ================= -->
+<!-- ========================================================= -->
+<!-- FOOTER                                                    -->
+<!-- ========================================================= -->
 <footer>
     © __THEME_TITLE__ — All rights reserved.
 </footer>
 
+
+<!-- ========================================================= -->
+<!-- JAVASCRIPT                                                -->
+<!-- ========================================================= -->
 <script>
-/* ================= DATE & TIME ================= */
+/* LIVE DATE & TIME */
 setInterval(() => {
     document.getElementById("datetime").innerHTML = new Date().toLocaleString();
 }, 1000);
 
-/* ================= JQUERY SMOOTH SCROLL ================= */
+/* SMOOTH SCROLL USING JQUERY */
 $("nav a").click(function(e){
     e.preventDefault();
     $("html, body").animate({
-        scrollTop: $($(this).attr("href")).offset().top - 50
+        scrollTop: $($(this).attr("href")).offset().top - 60
     }, 500);
 });
 
-/* ================= FORM VALIDATION ================= */
+/* FORM VALIDATION */
 $("#submitBtn").click(function(){
 
     let valid = true;
@@ -296,59 +279,44 @@ $("#submitBtn").click(function(){
     if($("#fullname").val().trim() === ""){
         $("#err_name").html("Name is required.");
         valid = false;
-    } else { $("#err_name").html(""); }
+    } else $("#err_name").html("");
 
     const email = $("#email").val().trim();
-    const pattern = /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/;
+    const pattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
     if(!pattern.test(email)){
         $("#err_email").html("Enter a valid email.");
         valid = false;
-    } else { $("#err_email").html(""); }
+    } else $("#err_email").html("");
 
     if(!$("input[name='gender']:checked").val()){
-        $("#err_gender").html("Choose gender.");
+        $("#err_gender").html("Select gender.");
         valid = false;
-    } else { $("#err_gender").html(""); }
+    } else $("#err_gender").html("");
 
     if($("#age").val() === ""){
-        $("#err_age").html("Select age group.");
+        $("#err_age").html("Choose age.");
         valid = false;
-    } else { $("#err_age").html(""); }
+    } else $("#err_age").html("");
 
     if($("input[name='int']:checked").length === 0){
-        $("#err_int").html("Choose at least one interest.");
+        $("#err_int").html("Choose at least 1 option.");
         valid = false;
-    } else { $("#err_int").html(""); }
+    } else $("#err_int").html("");
 
     if(valid){
-        alert("Form submitted successfully!");
+        alert("Form submitted!");
         location.reload();
     }
 });
 
-/* ================= MOBILE NAV TOGGLE ================= */
+/* MOBILE NAV TOGGLE */
 $("#menuBtn").click(function(){
     $("nav").toggleClass("open");
 });
 
-/* ================= DARK/LIGHT MODE ================= */
+/* DARK / LIGHT MODE TOGGLE */
 $("#modeToggle").click(function(){
     $("body").toggleClass("dark-mode");
-});
-
-/* ================= THEME COLOR TOGGLE ================= */
-let defaultTheme = true;
-$("#colorToggle").click(function(){
-
-    if(defaultTheme){
-        $("nav, footer, h2").css("background", "#d63c3c");  /* ALT COLOR */
-        $("h2").css("color", "#d63c3c");
-    } else {
-        $("nav, footer, h2").css("background", "__THEME_COLOR__"); /* ORIGINAL */
-        $("h2").css("color", "__THEME_COLOR__");
-    }
-
-    defaultTheme = !defaultTheme;
 });
 </script>
 
