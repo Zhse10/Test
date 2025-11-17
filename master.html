@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>FA Web Design — Master Template</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- BOOTSTRAP -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+
+    <!-- JQUERY -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- BOOTSTRAP JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- CSS -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f7fbff;
+            padding-top: 70px;
+        }
+
+        nav {
+            background: #0d2233;
+        }
+
+        nav a {
+            color: white !important;
+            font-weight: 600;
+        }
+
+        nav a:hover {
+            color: #19d3ff !important;
+        }
+
+        .banner {
+            position: relative;
+            height: 420px;
+            background: #000;
+        }
+
+        .yt-wrap {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        .yt-wrap iframe {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        .banner-text {
+            position: absolute;
+            top: 15%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0,0,0,0.5);
+            padding: 15px 25px;
+            color: white;
+            font-size: 28px;
+            border-radius: 8px;
+        }
+
+        footer {
+            background: #0d2233;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .plans td {
+            border: 1px solid #dce3e8;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .error {
+            color: red;
+            font-size: 13px;
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- NAVIGATION BAR -->
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="container">
+        <a class="navbar-brand fw-bold" href="#">Master Template</a>
+        <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navMenu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div id="navMenu" class="collapse navbar-collapse">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a href="#home" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="#plans" class="nav-link">Plans</a></li>
+                <li class="nav-item"><a href="#register" class="nav-link">Register</a></li>
+                <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- BANNER SECTION -->
+<header id="home" class="banner">
+    <div class="yt-wrap">
+        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ?rel=0" allowfullscreen></iframe>
+    </div>
+    <div class="banner-text">Welcome to the FA Master Template</div>
+</header>
+
+<div class="container mt-4">
+
+    <!-- INTRO -->
+    <section>
+        <h2 class="text-center fw-bold">Website Overview</h2>
+        <p class="text-center">This template includes all FA exam requirements: HTML, CSS, Bootstrap, JS, jQuery, form validation, maps, YouTube, date/time, tel link, email link, table, navigation bar, and layout.</p>
+    </section>
+
+    <!-- 2x4 PLAN TABLE -->
+    <section id="plans" class="mt-5">
+        <h2 class="text-center fw-bold">Workout / Service Plans</h2>
+        <table class="table plans mt-3">
+            <tr>
+                <td><b>Plan 1</b><ul><li>Item A</li><li>Item B</li></ul></td>
+                <td><b>Plan 2</b><ul><li>Item A</li><li>Item B</li></ul></td>
+                <td><b>Plan 3</b><ul><li>Item A</li><li>Item B</li></ul></td>
+                <td><b>Plan 4</b><ul><li>Item A</li><li>Item B</li></ul></td>
+            </tr>
+            <tr>
+                <td><b>Plan 5</b><ul><li>Item A</li><li>Item B</li></ul></td>
+                <td><b>Plan 6</b><ul><li>Item A</li><li>Item B</li></ul></td>
+                <td><b>Plan 7</b><ul><li>Item A</li><li>Item B</li></ul></td>
+                <td><b>Plan 8</b><ul><li>Item A</li><li>Item B</li></ul></td>
+            </tr>
+        </table>
+    </section>
+
+    <!-- REGISTRATION FORM -->
+    <section id="register" class="mt-5">
+        <h2 class="text-center fw-bold">Registration Form</h2>
+        <p class="text-center">All fields are required.</p>
+
+        <form id="regForm" class="p-4 shadow rounded bg-white">
+
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label>Full Name</label>
+                    <input type="text" id="name" class="form-control">
+                    <div id="err-name" class="error"></div>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label>Email</label>
+                    <input type="email" id="email" class="form-control">
+                    <div id="err-email" class="error"></div>
+                </div>
+            </div>
+
+            <label>Gender</label>
+            <div>
+                <input type="radio" name="gender" value="Male"> Male
+                <input type="radio" name="gender" value="Female"> Female
+            </div>
+            <div id="err-gender" class="error mb-3"></div>
+
+            <label>Age Group</label>
+            <select id="age" class="form-select">
+                <option value="">-- Select Age --</option>
+                <option>Under 18</option>
+                <option>18-30</option>
+                <option>31-50</option>
+                <option>50+</option>
+            </select>
+            <div id="err-age" class="error mb-3"></div>
+
+            <label>Interests (Select one or more)</label>
+            <div>
+                <input type="checkbox" name="int" value="1"> Option 1
+                <input type="checkbox" name="int" value="2"> Option 2
+                <input type="checkbox" name="int" value="3"> Option 3
+            </div>
+            <div id="err-int" class="error mb-3"></div>
+
+            <label>Short Note</label>
+            <textarea id="note" rows="3" class="form-control"></textarea>
+            <div id="err-note" class="error mb-3"></div>
+
+            <button type="reset" class="btn btn-secondary">Reset</button>
+            <button type="submit" class="btn btn-primary">Submit (Refresh Page)</button>
+        </form>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact" class="mt-5">
+        <h2 class="text-center fw-bold">Contact Us</h2>
+
+        <div class="row mt-4">
+            <div class="col-md-6">
+                <h4>Quick Contact</h4>
+                <p><b>Call:</b> <a href="tel:+60123456789">+60 12-345 6789</a></p>
+                <p><b>Email:</b> <a href="mailto:info@example.com">info@example.com</a></p>
+                <p><b>Date/Time:</b> <span id="datetime"></span></p>
+            </div>
+
+            <div class="col-md-6">
+                <h4>Location</h4>
+                <iframe class="w-100" height="300"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!"
+                        style="border:0;" allowfullscreen=""></iframe>
+            </div>
+        </div>
+    </section>
+</div>
+
+<!-- FOOTER -->
+<footer>
+    Copyright © Master Template
+</footer>
+
+<!-- JAVASCRIPT -->
+<script>
+// Display Date/Time
+function updateDT(){
+    document.getElementById("datetime").innerHTML = new Date().toLocaleString();
+}
+setInterval(updateDT, 1000);
+
+// Smooth Scroll (jQuery)
+$('a[href^="#"]').click(function(e){
+    let t = $($(this).attr('href'));
+    if(t.length){
+        e.preventDefault();
+        $('html, body').animate({scrollTop: t.offset().top - 60}, 500);
+    }
+});
+
+// Fade Sections
+$("section").css("opacity",0).each(function(i){
+    $(this).delay(200*i).animate({opacity:1},600);
+});
+
+// Form Validation
+$("#regForm").submit(function(){
+    let valid = true;
+
+    $(".error").text(""); // reset errors
+
+    let name = $("#name").val().trim();
+    let email = $("#email").val().trim();
+    let gender = $("input[name='gender']:checked").length;
+    let age = $("#age").val();
+    let int = $("input[name='int']:checked").length;
+    let note = $("#note").val().trim();
+
+    if(!name){ $("#err-name").text("Enter name"); valid=false; }
+    if(!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){
+        $("#err-email").text("Invalid email"); valid=false;
+    }
+    if(!gender){ $("#err-gender").text("Select gender"); valid=false; }
+    if(!age){ $("#err-age").text("Select age group"); valid=false; }
+    if(!int){ $("#err-int").text("Select at least one"); valid=false; }
+    if(!note){ $("#err-note").text("Enter note"); valid=false; }
+
+    return valid;  // if true → submit (refresh)
+});
+</script>
+
+</body>
+</html>
