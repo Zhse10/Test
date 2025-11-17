@@ -3,6 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- ================================ -->
+<!-- NOTE: CHANGE WEBSITE NAME HERE   -->
+<!-- ================================ -->
 <title>__THEME_TITLE__</title>
 
 <!-- jQuery (Required by Exam) -->
@@ -15,11 +19,14 @@ body {
     font-family: Arial, sans-serif;
 }
 
-/* NAVIGATION */
+/* ====================== NAVIGATION ====================== */
 nav {
     position: fixed;
     top: 0; left: 0; right: 0;
+
+    /* NOTE: CHANGE YOUR THEME COLOR HERE */
     background: __THEME_COLOR__;
+
     padding: 15px;
     z-index: 1000;
 }
@@ -30,7 +37,68 @@ nav a {
     font-weight: bold;
 }
 
-/* BANNER */
+/* NOTE: TOGGLE BUTTON SECTION */
+.toggle-controls {
+    float: right;
+}
+
+.toggle-controls button {
+    background: white;
+    color: black;
+    border: none;
+    padding: 6px 10px;
+    margin-left: 8px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+/* NOTE: MOBILE MENU HAMBURGER */
+.menu-btn {
+    display: none;
+    font-size: 24px;
+    cursor: pointer;
+    margin-left: 15px;
+}
+
+/* NOTE: SHOW LINKS WHEN NAV HAS CLASS 'open' */
+nav.open a {
+    display: block;
+    margin: 10px 0;
+}
+
+/* NOTE: RESPONSIVE NAVBAR ACTIVATION */
+@media(max-width: 700px) {
+    nav a {
+        display: none;
+    }
+    .menu-btn {
+        display: inline-block;
+    }
+    nav.open a {
+        display: block;
+    }
+}
+
+/* ====================== DARK MODE STYLES ====================== */
+.dark-mode {
+    background: #121212;
+    color: white;
+}
+
+.dark-mode nav {
+    background: #000;
+}
+
+.dark-mode section {
+    background: #1e1e1e;
+}
+
+.dark-mode footer {
+    background: #000;
+}
+
+/* ====================== BANNER ====================== */
 .banner {
     margin-top: 60px;
 }
@@ -40,15 +108,16 @@ nav a {
     border: none;
 }
 
-/* SECTION FORMAT */
+/* ====================== SECTIONS ====================== */
 section {
     padding: 40px;
 }
 h2 {
+    /* NOTE: Changes with color toggle */
     color: __THEME_COLOR__;
 }
 
-/* TABLE (2 x 4 required) */
+/* ====================== TABLE (2x4) ====================== */
 table {
     width: 100%;
     border-collapse: collapse;
@@ -59,7 +128,7 @@ td {
     text-align: left;
 }
 
-/* FORM */
+/* ====================== FORM ====================== */
 form {
     max-width: 600px;
 }
@@ -73,7 +142,7 @@ input, select, textarea {
     font-size: 13px;
 }
 
-/* FOOTER */
+/* ====================== FOOTER ====================== */
 footer {
     background: __THEME_COLOR__;
     color: white;
@@ -86,15 +155,25 @@ footer {
 
 <!-- ================= NAVBAR ================= -->
 <nav>
+    <!-- NOTE: NAV LINKS -->
     <a href="#home">Home</a>
     <a href="#plans">Plans</a>
     <a href="#register">Register</a>
     <a href="#contact">Contact</a>
+
+    <!-- ================= NAVBAR TOGGLE BUTTONS ================= -->
+    <!-- NOTE: COLOR TOGGLE, DARK MODE, MOBILE MENU -->
+    <div class="toggle-controls">
+        <button id="colorToggle">Toggle Theme Color</button>
+        <button id="modeToggle">Dark/Light</button>
+        <span id="menuBtn" class="menu-btn">☰</span>
+    </div>
 </nav>
 
 <!-- ================= BANNER ================= -->
 <div class="banner" id="home">
     <iframe 
+        <!-- NOTE: CHANGE VIDEO ID HERE -->
         src="https://www.youtube.com/embed/__VIDEO_ID__?autoplay=1&mute=1&controls=1">
     </iframe>
 </div>
@@ -102,37 +181,28 @@ footer {
 <!-- ================= WORKOUT / SERVICE PLANS ================= -->
 <section id="plans">
     <h2>Our Programs</h2>
+
+    <!-- NOTE: THIS TABLE MUST REMAIN 2 ROWS × 4 COLUMNS -->
     <table>
         <tr>
             <td>
                 <h3>Plan 1</h3>
-                <ul>
-                    <li>Item A</li>
-                    <li>Item B</li>
-                </ul>
+                <ul><li>Item A</li><li>Item B</li></ul>
             </td>
             <td>
                 <h3>Plan 2</h3>
-                <ul>
-                    <li>Item A</li>
-                    <li>Item B</li>
-                </ul>
+                <ul><li>Item A</li><li>Item B</li></ul>
             </td>
             <td>
                 <h3>Plan 3</h3>
-                <ul>
-                    <li>Item A</li>
-                    <li>Item B</li>
-                </ul>
+                <ul><li>Item A</li><li>Item B</li></ul>
             </td>
             <td>
                 <h3>Plan 4</h3>
-                <ul>
-                    <li>Item A</li>
-                    <li>Item B</li>
-                </ul>
+                <ul><li>Item A</li><li>Item B</li></ul>
             </td>
         </tr>
+
         <tr>
             <td><h3>Plan 5</h3><ul><li>A</li><li>B</li></ul></td>
             <td><h3>Plan 6</h3><ul><li>A</li><li>B</li></ul></td>
@@ -183,10 +253,13 @@ footer {
 <!-- ================= CONTACT ================= -->
 <section id="contact">
     <h2>Contact Us</h2>
+
     <p>Phone: <a href="tel:+60123456789">+60 12-345 6789</a></p>
     <p>Email: <a href="mailto:admin@example.com">admin@example.com</a></p>
 
     <h3>Our Location</h3>
+
+    <!-- NOTE: REPLACE MAP CODE HERE -->
     <iframe 
         src="https://www.google.com/maps/embed?pb=__MAP_EMBED_CODE__"
         width="100%" height="300">
@@ -196,17 +269,18 @@ footer {
     <p id="datetime"></p>
 </section>
 
+<!-- ================= FOOTER ================= -->
 <footer>
     © __THEME_TITLE__ — All rights reserved.
 </footer>
 
 <script>
-// ---------------- DATE & TIME ----------------
+/* ================= DATE & TIME ================= */
 setInterval(() => {
     document.getElementById("datetime").innerHTML = new Date().toLocaleString();
 }, 1000);
 
-// ---------------- JQUERY SMOOTH SCROLL ----------------
+/* ================= JQUERY SMOOTH SCROLL ================= */
 $("nav a").click(function(e){
     e.preventDefault();
     $("html, body").animate({
@@ -214,18 +288,16 @@ $("nav a").click(function(e){
     }, 500);
 });
 
-// ---------------- FORM VALIDATION ----------------
+/* ================= FORM VALIDATION ================= */
 $("#submitBtn").click(function(){
 
     let valid = true;
 
-    // Name
     if($("#fullname").val().trim() === ""){
         $("#err_name").html("Name is required.");
         valid = false;
     } else { $("#err_name").html(""); }
 
-    // Email
     const email = $("#email").val().trim();
     const pattern = /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/;
     if(!pattern.test(email)){
@@ -233,29 +305,50 @@ $("#submitBtn").click(function(){
         valid = false;
     } else { $("#err_email").html(""); }
 
-    // Gender
     if(!$("input[name='gender']:checked").val()){
         $("#err_gender").html("Choose gender.");
         valid = false;
     } else { $("#err_gender").html(""); }
 
-    // Age
     if($("#age").val() === ""){
         $("#err_age").html("Select age group.");
         valid = false;
     } else { $("#err_age").html(""); }
 
-    // Interests
     if($("input[name='int']:checked").length === 0){
         $("#err_int").html("Choose at least one interest.");
         valid = false;
     } else { $("#err_int").html(""); }
 
-    // SUCCESS
     if(valid){
         alert("Form submitted successfully!");
-        location.reload(); // refresh (required)
+        location.reload();
     }
+});
+
+/* ================= MOBILE NAV TOGGLE ================= */
+$("#menuBtn").click(function(){
+    $("nav").toggleClass("open");
+});
+
+/* ================= DARK/LIGHT MODE ================= */
+$("#modeToggle").click(function(){
+    $("body").toggleClass("dark-mode");
+});
+
+/* ================= THEME COLOR TOGGLE ================= */
+let defaultTheme = true;
+$("#colorToggle").click(function(){
+
+    if(defaultTheme){
+        $("nav, footer, h2").css("background", "#d63c3c");  /* ALT COLOR */
+        $("h2").css("color", "#d63c3c");
+    } else {
+        $("nav, footer, h2").css("background", "__THEME_COLOR__"); /* ORIGINAL */
+        $("h2").css("color", "__THEME_COLOR__");
+    }
+
+    defaultTheme = !defaultTheme;
 });
 </script>
 
